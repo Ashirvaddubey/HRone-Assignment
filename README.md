@@ -7,6 +7,7 @@
 <img width="1079" height="702" alt="image" src="https://github.com/user-attachments/assets/a99a6ecb-f998-4e69-a02f-64ca5a3a0712" />
 <img width="1060" height="685" alt="image" src="https://github.com/user-attachments/assets/3cdc9968-fdd0-451c-aaa5-a3e168c7b061" />
 ## Example of exceution:-
+
 MongoDB Query Execution Analysis — employee_monthly
 1. Query Details
 Endpoint: employee_monthly

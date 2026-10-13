@@ -1,5 +1,13 @@
 # Candidate kit
 
+# Arifects
+<img width="1427" height="835" alt="image" src="https://github.com/user-attachments/assets/6e6b1986-9da4-4c0b-b1a1-1d05fb41402a" />
+<img width="1425" height="830" alt="image" src="https://github.com/user-attachments/assets/7d93aa92-0980-417c-8e43-3ca2fbd648cd" />
+<img width="1350" height="719" alt="image" src="https://github.com/user-attachments/assets/6dbd2369-d90e-4251-b60e-ac24ccf0b613" />
+
+
+
+
 Read in this order:
 
 1. `PROBLEM_STATEMENT.docx`: what you are asked to do, how it is evaluated.

@@ -46,6 +46,20 @@ Run the local check with the API running:
 
 MongoDB Compass confirmed `IXSCAN` for the employee/date attendance query and the monthly employee query. The monthly explain output showed two index keys and two documents examined, with no collection scan.
 
+## Artifacts
+
+The following screenshots document the running API, MongoDB collections, indexes, and explain-plan verification:
+
+![Swagger API routes](https://github.com/user-attachments/assets/6e6b1986-9da4-4c0b-b1a1-1d05fb41402a)
+
+![Swagger endpoint testing](https://github.com/user-attachments/assets/7d93aa92-0980-417c-8e43-3ca2fbd648cd)
+
+![MongoDB attendance documents](https://github.com/user-attachments/assets/6dbd2369-d90e-4251-b60e-ac24ccf0b613)
+
+![MongoDB indexes](https://github.com/user-attachments/assets/a99a6ecb-f998-4e69-a02f-64ca5a3a0712)
+
+![MongoDB IXSCAN explain plan](https://github.com/user-attachments/assets/3cdc9968-fdd0-451c-aaa5-a3e168c7b061)
+
 ## Documentation
 
 - `SETUP.md` — environment setup and startup instructions.

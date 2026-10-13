@@ -66,6 +66,7 @@ The following screenshots document the running API, MongoDB collections, indexes
 - `REVIEW.md` — starter defects, symptoms, and fixes.
 - `ISSUE_ANALYSIS.md` — review and testing approach.
 - `IMPLEMENTATION_NOTES.md` — design choices and verification notes.
+- `ENDPOINTS.md` — endpoint-by-endpoint behavior, inputs, errors, and implementation details.
 - `DECISIONS.md` — answers to the assignment’s five design questions.
 - `DATA_MODEL.md` — MongoDB collections and field conventions.
 - `openapi.yaml` — API contract and business rules.

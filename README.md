@@ -7,15 +7,18 @@
 <img width="1079" height="702" alt="image" src="https://github.com/user-attachments/assets/a99a6ecb-f998-4e69-a02f-64ca5a3a0712" />
 <img width="1060" height="685" alt="image" src="https://github.com/user-attachments/assets/3cdc9968-fdd0-451c-aaa5-a3e168c7b061" />
 ## Example of exceution:-
+MongoDB Query Execution Analysis
 
-MongoDB Query Execution Analysis — employee_monthly
+This section documents the MongoDB execution plan for the employee_monthly endpoint, including index selection, execution statistics, and query performance.
+
 1. Query Details
-Endpoint: employee_monthly
-Collection: attendance_logs
-Database: attendance_assignment_dev
-Employee Code: EMP0001
-Date Range: July 1, 2026 – July 31, 2026
-MongoDB Version: 8.0.3
+Property	Value
+Endpoint	employee_monthly
+Collection	attendance_logs
+Database	attendance_assignment_dev
+Employee Code	EMP0001
+Date Range	July 1–31, 2026
+MongoDB Version	8.0.3
 2. Aggregation Query
 db.attendance_logs.aggregate([
   {
@@ -31,15 +34,13 @@ db.attendance_logs.aggregate([
 
 3. Winning Execution Plan
 
-MongoDB uses the compound index emp_code_1_date_-1 to retrieve the employee's attendance records efficiently.
-
-Execution stages:
+MongoDB selected the compound index emp_code_1_date_-1 to find attendance records for the specified employee and date range.
 
 FETCH
- └── IXSCAN
-      Index: emp_code_1_date_-1
+└── IXSCAN
+    └── Index: emp_code_1_date_-1
 
-IXSCAN: Scans the index to locate matching records.
+IXSCAN: Scans the index for matching records.
 FETCH: Retrieves the matching documents from the collection.
 4. Index Used
 {
@@ -50,7 +51,7 @@ FETCH: Retrieves the matching documents from the collection.
 
 Index name: emp_code_1_date_-1
 
-The compound index supports an equality match on emp_code and a date-range filter on date, making it suitable for this query.
+The compound index supports an equality condition on emp_code and a range condition on date.
 
 5. Execution Statistics
 Metric	Result
@@ -64,33 +65,33 @@ Winning Plan Stage	FETCH
 Index Scan Stage	IXSCAN
 6. Index Comparison
 
-MongoDB evaluated three candidate indexes:
+MongoDB evaluated three candidate indexes.
 
-Index	Status
+Index Name	Planner Decision
 emp_code_1_date_-1	Selected
 date_-1_emp_code_1	Rejected
 emp_code_1_status_1_date_-1	Rejected
 
-The selected index aligns with the query's employee equality condition followed by the date-range condition. The other indexes were considered but were not selected by the query planner.
+The selected index matches the employee equality filter and date-range condition. The query planner chose this index over the other candidates for this execution.
 
 7. Performance Analysis
 
-The query returned 2 documents, examined only 2 index keys, and examined only 2 documents.
+The query returned 2 documents, examined 2 index keys, and examined 2 documents.
 
-This indicates an efficient index scan for the current dataset and query.
+Index efficiency: Two index keys were examined for two returned documents.
+Document efficiency: Only the two matching documents were examined.
+Execution time: MongoDB reported 0 ms; this is a measured execution result, not a guarantee of zero processing time.
+Index usage: The query used an index scan rather than a collection scan.
 
-Index efficiency: Both examined index keys corresponded to returned documents.
-Document efficiency: No additional documents needed to be examined.
-Execution time: MongoDB reported 0 ms, which is a rounded or very small measured duration, not proof that the query takes literally no time.
-Index selection: The compound index avoids scanning the entire collection for this query.
+These results indicate an efficient execution plan for the tested query and dataset. Additional testing with larger datasets is recommended to evaluate performance under realistic workloads.
+
 8. Conclusion
 
-The employee_monthly query uses the compound index emp_code_1_date_-1 effectively to filter attendance records for a specific employee within a monthly date range.
+The employee_monthly endpoint uses the compound index emp_code_1_date_-1 to retrieve attendance records for a specific employee within a monthly date range.
 
-The execution statistics show that only the two matching documents and their corresponding index keys were examined. Based on this execution plan, the current index is appropriate for the query.
+The execution statistics show that two index keys and two documents were examined to return two results. The selected index is appropriate for this query pattern based on the observed execution plan.
 
-Note: These statistics describe the observed execution and dataset. Further testing with larger datasets and representative workloads is recommended before drawing conclusions about overall production performance.
-
+Note: Execution statistics reflect the tested query and dataset. Actual performance may vary with data volume, distribution, and workload.
 
 
 

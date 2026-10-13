@@ -6,237 +6,89 @@
 <img width="1350" height="719" alt="image" src="https://github.com/user-attachments/assets/6dbd2369-d90e-4251-b60e-ac24ccf0b613" />
 <img width="1079" height="702" alt="image" src="https://github.com/user-attachments/assets/a99a6ecb-f998-4e69-a02f-64ca5a3a0712" />
 <img width="1060" height="685" alt="image" src="https://github.com/user-attachments/assets/3cdc9968-fdd0-451c-aaa5-a3e168c7b061" />
-response :-{
-  "endpoint": "employee_monthly",
-  "collection": "attendance_logs",
-  "explain": {
-    "explainVersion": "1",
-    "queryPlanner": {
-      "namespace": "attendance_assignment_dev.attendance_logs",
-      "parsedQuery": {
-        "$and": [
-          {
-            "emp_code": {
-              "$eq": "EMP0001"
-            }
-          },
-          {
-            "date": {
-              "$lte": "2026-07-31"
-            }
-          },
-          {
-            "date": {
-              "$gte": "2026-07-01"
-            }
-          }
-        ]
-      },
-      "indexFilterSet": false,
-      "queryHash": "17703E5F",
-      "planCacheKey": "A76C6602",
-      "optimizationTimeMillis": 0,
-      "optimizedPipeline": true,
-      "maxIndexedOrSolutionsReached": false,
-      "maxIndexedAndSolutionsReached": false,
-      "maxScansToExplodeReached": false,
-      "prunedSimilarIndexes": false,
-      "winningPlan": {
-        "isCached": false,
-        "stage": "FETCH",
-        "inputStage": {
-          "stage": "IXSCAN",
-          "keyPattern": {
-            "emp_code": 1,
-            "date": -1
-          },
-          "indexName": "emp_code_1_date_-1",
-          "isMultiKey": false,
-          "multiKeyPaths": {
-            "emp_code": [],
-            "date": []
-          },
-          "isUnique": true,
-          "isSparse": false,
-          "isPartial": false,
-          "indexVersion": 2,
-          "direction": "forward",
-          "indexBounds": {
-            "emp_code": [
-              "[\"EMP0001\", \"EMP0001\"]"
-            ],
-            "date": [
-              "[\"2026-07-31\", \"2026-07-01\"]"
-            ]
-          }
-        }
-      },
-      "rejectedPlans": [
-        {
-          "isCached": false,
-          "stage": "FETCH",
-          "inputStage": {
-            "stage": "IXSCAN",
-            "keyPattern": {
-              "date": -1,
-              "emp_code": 1
-            },
-            "indexName": "date_-1_emp_code_1",
-            "isMultiKey": false,
-            "multiKeyPaths": {
-              "date": [],
-              "emp_code": []
-            },
-            "isUnique": false,
-            "isSparse": false,
-            "isPartial": false,
-            "indexVersion": 2,
-            "direction": "forward",
-            "indexBounds": {
-              "date": [
-                "[\"2026-07-31\", \"2026-07-01\"]"
-              ],
-              "emp_code": [
-                "[\"EMP0001\", \"EMP0001\"]"
-              ]
-            }
-          }
-        },
-        {
-          "isCached": false,
-          "stage": "FETCH",
-          "inputStage": {
-            "stage": "IXSCAN",
-            "keyPattern": {
-              "emp_code": 1,
-              "status": 1,
-              "date": -1
-            },
-            "indexName": "emp_code_1_status_1_date_-1",
-            "isMultiKey": false,
-            "multiKeyPaths": {
-              "emp_code": [],
-              "status": [],
-              "date": []
-            },
-            "isUnique": false,
-            "isSparse": false,
-            "isPartial": false,
-            "indexVersion": 2,
-            "direction": "forward",
-            "indexBounds": {
-              "emp_code": [
-                "[\"EMP0001\", \"EMP0001\"]"
-              ],
-              "status": [
-                "[MinKey, MaxKey]"
-              ],
-              "date": [
-                "[\"2026-07-31\", \"2026-07-01\"]"
-              ]
-            }
-          }
-        }
-      ]
-    },
-    "executionStats": {
-      "executionSuccess": true,
-      "nReturned": 2,
-      "executionTimeMillis": 0,
-      "totalKeysExamined": 2,
-      "totalDocsExamined": 2,
-      "executionStages": {
-        "isCached": false,
-        "stage": "FETCH",
-        "nReturned": 2,
-        "executionTimeMillisEstimate": 0,
-        "works": 4,
-        "advanced": 2,
-        "needTime": 0,
-        "needYield": 0,
-        "saveState": 0,
-        "restoreState": 0,
-        "isEOF": 1,
-        "docsExamined": 2,
-        "alreadyHasObj": 0,
-        "inputStage": {
-          "stage": "IXSCAN",
-          "nReturned": 2,
-          "executionTimeMillisEstimate": 0,
-          "works": 3,
-          "advanced": 2,
-          "needTime": 0,
-          "needYield": 0,
-          "saveState": 0,
-          "restoreState": 0,
-          "isEOF": 1,
-          "keyPattern": {
-            "emp_code": 1,
-            "date": -1
-          },
-          "indexName": "emp_code_1_date_-1",
-          "isMultiKey": false,
-          "multiKeyPaths": {
-            "emp_code": [],
-            "date": []
-          },
-          "isUnique": true,
-          "isSparse": false,
-          "isPartial": false,
-          "indexVersion": 2,
-          "direction": "forward",
-          "indexBounds": {
-            "emp_code": [
-              "[\"EMP0001\", \"EMP0001\"]"
-            ],
-            "date": [
-              "[\"2026-07-31\", \"2026-07-01\"]"
-            ]
-          },
-          "keysExamined": 2,
-          "seeks": 1,
-          "dupsTested": 0,
-          "dupsDropped": 0
-        }
+## Example of exceution:-
+MongoDB Query Execution Analysis — employee_monthly
+1. Query Details
+Endpoint: employee_monthly
+Collection: attendance_logs
+Database: attendance_assignment_dev
+Employee Code: EMP0001
+Date Range: July 1, 2026 – July 31, 2026
+MongoDB Version: 8.0.3
+2. Aggregation Query
+db.attendance_logs.aggregate([
+  {
+    $match: {
+      emp_code: "EMP0001",
+      date: {
+        $gte: "2026-07-01",
+        $lte: "2026-07-31"
       }
-    },
-    "command": {
-      "aggregate": "attendance_logs",
-      "pipeline": [
-        {
-          "$match": {
-            "emp_code": "EMP0001",
-            "date": {
-              "$gte": "2026-07-01",
-              "$lte": "2026-07-31"
-            }
-          }
-        }
-      ],
-      "cursor": {},
-      "$db": "attendance_assignment_dev"
-    },
-    "serverInfo": {
-      "host": "DESKTOP-VS9143U",
-      "port": 27017,
-      "version": "8.0.3",
-      "gitVersion": "89d97f2744a2b9851ddfb51bdf22f687562d9b06"
-    },
-    "serverParameters": {
-      "internalQueryFacetBufferSizeBytes": 104857600,
-      "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
-      "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
-      "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
-      "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
-      "internalQueryProhibitBlockingMergeOnMongoS": 0,
-      "internalQueryMaxAddToSetBytes": 104857600,
-      "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
-      "internalQueryFrameworkControl": "trySbeRestricted",
-      "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
-    },
-    "ok": 1
+    }
   }
+]);
+
+3. Winning Execution Plan
+
+MongoDB uses the compound index emp_code_1_date_-1 to retrieve the employee's attendance records efficiently.
+
+Execution stages:
+
+FETCH
+ └── IXSCAN
+      Index: emp_code_1_date_-1
+
+IXSCAN: Scans the index to locate matching records.
+FETCH: Retrieves the matching documents from the collection.
+4. Index Used
+{
+  emp_code: 1,
+  date: -1
 }
+
+
+Index name: emp_code_1_date_-1
+
+The compound index supports an equality match on emp_code and a date-range filter on date, making it suitable for this query.
+
+5. Execution Statistics
+Metric	Result
+Execution Success	true
+Documents Returned	2
+Index Keys Examined	2
+Documents Examined	2
+Execution Time	0 ms
+Index Seeks	1
+Winning Plan Stage	FETCH
+Index Scan Stage	IXSCAN
+6. Index Comparison
+
+MongoDB evaluated three candidate indexes:
+
+Index	Status
+emp_code_1_date_-1	Selected
+date_-1_emp_code_1	Rejected
+emp_code_1_status_1_date_-1	Rejected
+
+The selected index aligns with the query's employee equality condition followed by the date-range condition. The other indexes were considered but were not selected by the query planner.
+
+7. Performance Analysis
+
+The query returned 2 documents, examined only 2 index keys, and examined only 2 documents.
+
+This indicates an efficient index scan for the current dataset and query.
+
+Index efficiency: Both examined index keys corresponded to returned documents.
+Document efficiency: No additional documents needed to be examined.
+Execution time: MongoDB reported 0 ms, which is a rounded or very small measured duration, not proof that the query takes literally no time.
+Index selection: The compound index avoids scanning the entire collection for this query.
+8. Conclusion
+
+The employee_monthly query uses the compound index emp_code_1_date_-1 effectively to filter attendance records for a specific employee within a monthly date range.
+
+The execution statistics show that only the two matching documents and their corresponding index keys were examined. Based on this execution plan, the current index is appropriate for the query.
+
+Note: These statistics describe the observed execution and dataset. Further testing with larger datasets and representative workloads is recommended before drawing conclusions about overall production performance.
 
 
 
